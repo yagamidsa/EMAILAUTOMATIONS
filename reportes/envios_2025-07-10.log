@@ -1,0 +1,16 @@
+2025-07-10 13:40:55,472 - INFO - Intentando conectar con Outlook...
+2025-07-10 13:40:58,042 - INFO - ✅ Conexión con Outlook exitosa
+2025-07-10 14:59:20,889 - INFO - Intentando conectar con Outlook...
+2025-07-10 14:59:24,116 - INFO - ✅ Conexión con Outlook exitosa
+2025-07-10 14:59:36,673 - INFO - Iniciando envío de 2 correos
+2025-07-10 14:59:36,694 - ERROR - ❌ Error enviando a yagamidsa@hotmail.com: Outlook.Application.CreateItem
+2025-07-10 15:05:36,879 - ERROR - ❌ Error enviando a ximenach0913@gmail.com: Outlook.Application.CreateItem
+2025-07-10 15:05:36,879 - INFO - Envío completado: 0 exitosos, 2 fallidos
+2025-07-10 15:08:08,048 - INFO - Intentando conectar con Outlook...
+2025-07-10 15:08:08,112 - INFO - ✅ Conexión con Outlook exitosa
+2025-07-10 15:24:47,085 - INFO - Intentando conectar con Outlook...
+2025-07-10 15:24:49,262 - INFO - ✅ Conexión con Outlook exitosa
+2025-07-10 15:24:56,453 - INFO - Iniciando envío de 2 correos
+2025-07-10 15:24:56,478 - ERROR - ❌ Error enviando a yagamidsa@hotmail.com: Outlook.Application.CreateItem
+2025-07-10 15:30:56,717 - ERROR - ❌ Error enviando a ximenach0913@gmail.com: Outlook.Application.CreateItem
+2025-07-10 15:30:56,719 - INFO - Envío completado: 0 exitosos, 2 fallidos

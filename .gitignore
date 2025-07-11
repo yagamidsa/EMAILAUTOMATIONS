@@ -1,0 +1,11 @@
+# Cache de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Configuración y variables de entorno
+email_env/
+.env
+*.env
