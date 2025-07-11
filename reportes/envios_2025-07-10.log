@@ -14,3 +14,25 @@
 2025-07-10 15:24:56,478 - ERROR - ❌ Error enviando a yagamidsa@hotmail.com: Outlook.Application.CreateItem
 2025-07-10 15:30:56,717 - ERROR - ❌ Error enviando a ximenach0913@gmail.com: Outlook.Application.CreateItem
 2025-07-10 15:30:56,719 - INFO - Envío completado: 0 exitosos, 2 fallidos
+2025-07-10 22:28:52,964 - INFO - 🔄 Conectando con Outlook...
+2025-07-10 22:28:54,274 - INFO - ✅ Nueva instancia creada
+2025-07-10 22:28:54,564 - INFO - ✅ Conectado - Cuenta: david.alipio@kantar.com
+2025-07-10 22:29:02,874 - INFO - 🚀 INICIANDO ENVÍO DE 2 CORREOS
+2025-07-10 22:29:02,875 - INFO - ============================================================
+2025-07-10 22:29:02,875 - INFO - 📎 4 adjuntos verificados
+2025-07-10 22:29:02,878 - INFO - 📧 [1/2] Procesando: yagamidsa@hotmail.com
+2025-07-10 22:29:02,889 - ERROR - ❌ Error enviando a yagamidsa@hotmail.com: Outlook.Application.CreateItem
+2025-07-10 22:29:02,890 - ERROR - ❌ [1/2] FALLO: yagamidsa@hotmail.com - Outlook.Application.CreateItem
+2025-07-10 22:29:02,896 - INFO - ⏳ Pausa de 360 segundos...
+2025-07-10 22:35:03,114 - INFO - 📧 [2/2] Procesando: ximenach0913@gmail.com
+2025-07-10 22:35:03,116 - ERROR - ❌ Error enviando a ximenach0913@gmail.com: Outlook.Application.CreateItem
+2025-07-10 22:35:03,116 - ERROR - ❌ [2/2] FALLO: ximenach0913@gmail.com - Outlook.Application.CreateItem
+2025-07-10 22:35:03,122 - INFO - ============================================================
+2025-07-10 22:35:03,122 - INFO - 📊 RESUMEN FINAL:
+2025-07-10 22:35:03,122 - INFO -    ✅ Exitosos: 0
+2025-07-10 22:35:03,122 - INFO -    ❌ Fallidos: 2
+2025-07-10 22:35:03,122 - INFO -    📊 Total: 2
+2025-07-10 22:35:03,122 - INFO -    ⏱️ Duración: 0:06:00.249504
+2025-07-10 22:35:03,122 - INFO - ❌ ERRORES PRINCIPALES:
+2025-07-10 22:35:03,122 - INFO -    • desconocido: 2 casos
+2025-07-10 22:35:03,123 - INFO - ============================================================
