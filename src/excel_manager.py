@@ -3,7 +3,7 @@ import os
 from typing import Dict, List, Optional
 
 class ExcelManager:
-    """Gestor para leer y validar archivos Excel"""
+    """Gestor para leer y validar archivos Excel - CORREGIDO"""
     
     def __init__(self, data_folder: str = "data"):
         self.data_folder = data_folder
@@ -21,28 +21,56 @@ class ExcelManager:
         return archivos
     
     def cargar_campanas(self) -> Dict:
-        """Carga las campañas desde Excel"""
+        """Carga las campañas desde Excel - CORREGIDO PARA LEER ACTIVA CORRECTAMENTE"""
         try:
             df = pd.read_excel(self.campanas_file, sheet_name='Campañas')
             
-            # Buscar campaña activa
+            print(f"🔍 DEBUG: Total campañas encontradas: {len(df)}")
+            
+            # ⭐ BUSCAR CAMPAÑA ACTIVA CORRECTAMENTE
             campana_activa = None
-            for _, row in df.iterrows():
-                if str(row['ACTIVA']).upper() == 'SÍ':
-                    campana_activa = {
-                        'id': row['ID'],
-                        'nombre': row['Nombre_Campaña'],
-                        'asunto': row['Asunto_Email'],
-                        'contenido': row['Contenido_Email']
-                    }
-                    break
+            
+            for index, row in df.iterrows():
+                print(f"🔍 DEBUG: Campaña {index + 1}:")
+                print(f"   ID: {row['ID']}")
+                print(f"   Nombre: {row['Nombre_Campaña']}")
+                print(f"   ACTIVA: '{row['ACTIVA']}' (tipo: {type(row['ACTIVA'])})")
+                
+                # ⭐ VERIFICACIÓN CORRECTA DE "SÍ"
+                activa_valor = str(row['ACTIVA']).strip().upper()
+                
+                # Verificar múltiples formas de decir "SÍ"
+                if activa_valor in ['SÍ', 'SI', 'SÍ', 'YES', 'Y', '1', 'TRUE']:
+                    print(f"   ✅ Esta campaña está ACTIVA")
+                    
+                    if campana_activa is not None:
+                        print(f"   ⚠️ ADVERTENCIA: Ya hay otra campaña activa. Usando la primera encontrada.")
+                    else:
+                        campana_activa = {
+                            'id': row['ID'],
+                            'nombre': row['Nombre_Campaña'],
+                            'asunto': row['Asunto_Email'],
+                            'contenido': row['Contenido_Email']
+                        }
+                        print(f"   🎯 CAMPAÑA ACTIVA SELECCIONADA: {row['Nombre_Campaña']}")
+                else:
+                    print(f"   ❌ Esta campaña NO está activa")
+            
+            # Resultado final
+            if campana_activa:
+                print(f"\n✅ CAMPAÑA ACTIVA FINAL: {campana_activa['nombre']}")
+            else:
+                print(f"\n❌ NO HAY CAMPAÑA ACTIVA")
+                print(f"💡 Asegúrate de que una campaña tenga 'SÍ' en la columna ACTIVA")
             
             return {
                 'todas': df.to_dict('records'),
                 'activa': campana_activa,
                 'total': len(df)
             }
+            
         except Exception as e:
+            print(f"❌ ERROR cargando campañas: {str(e)}")
             return {'error': f"Error cargando campañas: {str(e)}"}
     
     def cargar_clientes(self) -> Dict:
@@ -144,9 +172,38 @@ class ExcelManager:
         
         return resumen
 
+    def mostrar_debug_campanas(self):
+        """Función de debug para mostrar todas las campañas"""
+        try:
+            df = pd.read_excel(self.campanas_file, sheet_name='Campañas')
+            
+            print(f"\n🔍 DEBUG COMPLETO DE CAMPAÑAS:")
+            print(f"=" * 50)
+            print(f"Total filas: {len(df)}")
+            print(f"Columnas: {list(df.columns)}")
+            print(f"")
+            
+            for index, row in df.iterrows():
+                print(f"FILA {index + 1}:")
+                print(f"  ID: {row['ID']}")
+                print(f"  Nombre: {row['Nombre_Campaña']}")
+                print(f"  ACTIVA: '{row['ACTIVA']}' (tipo: {type(row['ACTIVA'])})")
+                print(f"  ACTIVA repr: {repr(row['ACTIVA'])}")
+                print(f"  ACTIVA bytes: {row['ACTIVA'].encode('utf-8') if isinstance(row['ACTIVA'], str) else 'No es string'}")
+                print(f"")
+                
+        except Exception as e:
+            print(f"❌ Error en debug: {e}")
+
 # Función de prueba
 if __name__ == "__main__":
-    print("🧪 Probando ExcelManager...")
+    print("🧪 Probando ExcelManager CORREGIDO...")
     
     excel_mgr = ExcelManager()
+    
+    # Mostrar debug completo
+    excel_mgr.mostrar_debug_campanas()
+    
+    # Probar carga normal
+    print(f"\n" + "="*50)
     print(excel_mgr.obtener_resumen())
